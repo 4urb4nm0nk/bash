@@ -7,9 +7,15 @@ sudo apt auto-remove -y
 sudo gem install fpm
 
 curl -fsSL https://get.docker.com/ | sh
+sudo usermod -aG docker user
+#test user:
+#grep '^docker:.*$' /etc/group | cut -d: -f4
 
-#not permitted because privilage escalation
+#not allowed because privilage escalation:
 #sudo printf "[Service]\nExecStart=\nExecStart=/usr/bin/docker daemon -H fd:// -g /home/user/docker" > /etc/systemd/system/docker.service
+
+#to-try:
+#sh -c echo "[Service]\nExecStart=\nExecStart=/usr/bin/docker daemon -H fd:// -g /home/user/docker" > /etc/systemd/system/docker.service
 
 printf '\e[5;34m%-6s\e[m' "Run: " 
 printf "sudo vim /etc/systemd/system/docker.service\n"
