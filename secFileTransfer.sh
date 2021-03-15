@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Baixa e instala as ferramentas
-apt install veracrypt magic-wormhole -y
+apt install magic-wormhole -y
+wget https://launchpad.net/veracrypt/trunk/1.24-update7/+download/veracrypt-1.24-Update7-setup.tar.bz2
+tar -xvf veracrypt* && ./veracrypt*-x64 && rm veracrypt* 
 
 # Cria o container
 read -s -p "Defina a senha do container Veracrypt: " senhaContainer
@@ -13,6 +15,7 @@ veracrypt -t -p $senhaContainer -k "" --pim=420 --protect-hidden=no ./secureFile
 # Copia o arquivo para a unidade montada
 read -p "Qual/quais arquivo/s você deseja criptografar e enviar? " arquivoUp
 cp $arquivoUp /media/veracrypt1/
+echo "Os seguintes arquivos estão no container: "
 ls /media/veracrypt1/
 
 # Desmonta o container
