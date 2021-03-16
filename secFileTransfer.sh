@@ -13,7 +13,7 @@ then
     exit
 fi 
 
-printf "\nEmbora o Magic Wormhole seja seguro, criando uma transferência direta, criptografada e única entre os sistemas, duas camadas adicionais de proteção não faz mal a ninguém =]\n\n"
+printf "\nEmbora o Magic Wormhole seja seguro, criando uma transferência direta, criptografada e única entre os sistemas,\nduas camadas adicionais de proteção não faz mal a ninguém =]\n\n"
 
 # Cria o container
 read -s -p "--> Defina a senha do container Veracrypt: " senhaContainer
