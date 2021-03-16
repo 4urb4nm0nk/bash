@@ -38,13 +38,15 @@ veracrypt -t -d
 read -s -p "--> Defina a senha para o zip: " senhaZip
 zip secureFileTransfer.zip ./secureFileTransfer -P $senhaZip
 
-# Cria um wormhole com o container
-printf "\n--> Criando o wormhole com o container...\n"
-wormhole send ./secureFileTransfer.zip
-rm ./secureFileTransfer*
+# Printa informações para download
 printf "\n--> No sistema destino, rode os seguintes comandos para instalar o Magic-Wormhole + Veracrypt:\napt install magic-wormhole -y"
 printf "\nget https://launchpad.net/veracrypt/trunk/1.24-update7/+download/veracrypt-1.24-Update7-setup.tar.bz2"
 printf "\ntar -xvf veracrypt* && ./veracrypt*-x64 && rm veracrypt*"
 printf "\n\n--> Para descompactar:\nunzip secureFileTransfer.zip"
 printf "\n\n--> Para montar o container:\nveracrypt -t secureFileTransfer && cd /media/veracrypt1/"
 printf "\n\n--> Para desmontar o container:\nveracrypt -t -d\n"
+
+# Cria um wormhole com o container
+printf "\n--> Criando o wormhole com o container...\n"
+wormhole send ./secureFileTransfer.zip
+rm ./secureFileTransfer*
